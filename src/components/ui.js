@@ -3,6 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import isAbsoluteURL from "is-absolute-url"
 import * as React from "react"
 import * as styles from "./ui.css"
+import { containersHeight } from "./ui.css";
 
 export const cx = (...args) => args.filter(Boolean).join(" ")
 
@@ -102,8 +103,8 @@ export function Nudge({ left, right, top, bottom, ...props }) {
   )
 }
 
-export function Section(props) {
-  return <Box as="section" className={styles.section} {...props} />
+export function Section({height = 'normal', ...props}) {
+  return <Box as="section" cx={[styles.section, styles.containersHeight[height]]} {...props} />
 }
 
 export function Text({

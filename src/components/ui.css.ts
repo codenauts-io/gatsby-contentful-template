@@ -8,6 +8,9 @@ export const media = {
   small: `screen and (min-width: ${breakpoints[0]})`,
   medium: `screen and (min-width: ${breakpoints[1]})`,
   large: `screen and (min-width: ${breakpoints[2]})`,
+  small_max: `screen and (max-width: ${breakpoints[2]})`,
+  medium_max: `screen and (max-width: ${breakpoints[2]})`,
+  large_max: `screen and (max-width: ${breakpoints[2]})`,
 }
 
 export const container = style({
@@ -57,6 +60,18 @@ export const containers: Record<Containers, string> = styleVariants({
           paddingBottom: theme.space[5],
         },
       },
+    },
+  ],
+})
+
+export type ContainersHeight = "normal" | "fullscreen"
+
+export const containersHeight: Record<ContainersHeight, string> = styleVariants({
+  normal: [],
+  fullscreen: [
+    {
+      height: '100vh',
+      boxSizing: 'border-box',
     },
   ],
 })
