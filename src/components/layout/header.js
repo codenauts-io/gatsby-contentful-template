@@ -10,7 +10,7 @@ import {
   InteractiveIcon,
   Nudge,
   VisuallyHidden,
-} from "./ui"
+} from "../ui"
 import {
   mobileNavOverlay,
   mobileNavLink,
@@ -19,7 +19,7 @@ import {
   mobileNavSVGColorWrapper,
 } from "./header.css"
 import NavItemGroup from "./nav-item-group"
-import BrandLogo from "./brand-logo"
+import BrandLogo from "../brand-logo"
 
 export default function Header() {
 

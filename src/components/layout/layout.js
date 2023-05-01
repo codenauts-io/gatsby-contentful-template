@@ -1,5 +1,5 @@
 import * as React from "react"
-import "../theme/styles.css"
+import "../../theme/styles.css"
 import { Slice } from "gatsby"
 
 const Layout = ({ children }) => {

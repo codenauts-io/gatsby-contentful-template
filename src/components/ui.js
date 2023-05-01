@@ -3,7 +3,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import isAbsoluteURL from "is-absolute-url"
 import * as React from "react"
 import * as styles from "./ui.css"
-import { containersHeight } from "./ui.css";
 
 export const cx = (...args) => args.filter(Boolean).join(" ")
 
@@ -194,7 +193,7 @@ export function LinkList({ links = [], ...props }) {
     <FlexList {...props}>
       {links &&
         links.map((link, i) => (
-          <li key={link.id}>
+          <li key={i}>
             <CTALink href={link.href}>{link.text}</CTALink>
           </li>
         ))}
