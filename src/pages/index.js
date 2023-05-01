@@ -1,31 +1,35 @@
 import * as React from "react"
-
 import Layout from "../components/layout/layout"
 import Seo from "../components/seo"
 import Hero, { sizeFullScreen } from "../components/body/hero";
+import { graphql } from "gatsby";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
-const IndexPage = () => (
-  <Layout>
-    <Hero
-      size={sizeFullScreen}
-      h1={"Gatsby extra cool heading! yoyo"}
-      kicker={"Extra cool subheading"}
-      text={"Extra cool text → Build with it whatever you want! Do with it whatever you need! Use it for whatever you wish!"}
-      links={[
-        {
-          id: '123',
-          href: '#!',
-          text: 'Download App'
-        },
-        {
-          id: '12323',
-          href: '#!',
-          text: 'Check more'
-        }
-      ]}
-    />
-  </Layout>
-)
+const IndexPage = () => {
+  const { t } = useTranslation();
+  return (
+    <Layout>
+      <Hero
+        size={sizeFullScreen}
+        h1={t('index.title')}
+        kicker={t('index.title_kicker')}
+        text={t('index.title_text')}
+        links={[
+          {
+            id: '123',
+            href: '#!',
+            text: 'Download App'
+          },
+          {
+            id: '12323',
+            href: '#!',
+            text: 'Check more'
+          }
+        ]}
+      />
+    </Layout>
+  )
+}
 
 /**
  * Head export to define metadata for the page
@@ -35,3 +39,17 @@ const IndexPage = () => (
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: {language: {eq: $language}}) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
